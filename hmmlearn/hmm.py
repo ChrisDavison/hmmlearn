@@ -8,19 +8,22 @@
 """
 The :mod:`hmmlearn.hmm` module implements hidden Markov models.
 """
-
+import warnings
 import string
 
 import numpy as np
 from sklearn.utils import check_random_state
-from sklearn.mixture import (
-    GMM, sample_gaussian,
-    distribute_covar_matrix_to_match_covariance_type, _validate_covars)
+from sklearn.mixture import GMM, sample_gaussian, _validate_covars
 from sklearn import cluster
 
 from .base import _BaseHMM, decoder_algorithms
 from .utils import normalize
-from .utils.fixes import log_multivariate_normal_density
+
+# warnings.filterwarnings("ignore", category=warnings.DeprecationWarning)
+from .utils.fixes import (
+        log_multivariate_normal_density,
+        distribute_covar_matrix_to_match_covariance_type)
+# warnings.filterwarnings("allow")
 
 __all__ = ['GMMHMM',
            'GaussianHMM',

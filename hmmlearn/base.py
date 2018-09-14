@@ -3,7 +3,7 @@ import string
 import numpy as np
 from sklearn.base import BaseEstimator
 from sklearn.utils import check_random_state
-from sklearn.utils.extmath import logsumexp
+from scipy.misc import logsumexp
 
 from . import _hmmc
 from .utils import normalize

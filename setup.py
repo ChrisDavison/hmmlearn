@@ -69,5 +69,7 @@ if not ('--help' in sys.argv[1:]
         or len(sys.argv) > 1 and sys.argv[1] in NO_NUMPY_ACTIONS):
     import numpy as np
     setup_options['include_dirs'] = [np.get_include()]
+    for em in setup_options['ext_modules']:
+        em.include_dirs = [np.get_include()]
 
 setup(**setup_options)

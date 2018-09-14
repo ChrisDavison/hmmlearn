@@ -163,11 +163,7 @@ def _log_multivariate_normal_density(X, means, covars, covariance_type='diag'):
         X, means, covars)
 
 
-try:
-    from sklearn.mixture import log_multivariate_normal_density
-except ImportError:
-    # New in 0.14
-    log_multivariate_normal_density = _log_multivariate_normal_density
+log_multivariate_normal_density = _log_multivariate_normal_density
 
 
 def _distribute_covar_matrix_to_match_covariance_type(
@@ -189,11 +185,7 @@ def _distribute_covar_matrix_to_match_covariance_type(
     return cv
 
 
-try:
-    from sklearn.mixture import _distribute_covar_matrix_to_match_covariance_type
-except ImportError:
-    # New in 0.14
-    distribute_covar_matrix_to_match_covariance_type =\
-        _distribute_covar_matrix_to_match_covariance_type
+distribute_covar_matrix_to_match_covariance_type =\
+    _distribute_covar_matrix_to_match_covariance_type
 
 
